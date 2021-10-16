@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="theme-color" content="#1CCC5B" />
+	<link rel="stylesheet" href="styles/css/styles.css" />
+	<link rel="shortcut icon" href="assets/icon/favicon.ico" type="image/x-icon" />
+	<title>Expense calculator</title>
+</head>
+
+<body>
+	<header>
+		<a href="index.html"><img src="assets/img/logo-white.png" class="header-logo" alt="Logo header"></a>
+	</header>
+	<main>
+		<div class="box">
+			<section class="box__title">Weekly expenses</section>
+			<section class="box__container">
+				<div>
+					<p class="box__subtitle"><i class="bi bi-bookmark-plus-fill"></i> Add expenses here</p>
+					<form id="add-form" class="box__add-form">
+						<label for="spending">Spending: </label>
+						<input type="text" name="spending" id="spending" class="box__input" placeholder="Expense name">
+						<label for="total">Total ($): </label>
+						<input type="text" name="total" id="total" class="box__input" placeholder="Total price">
+						<button class="box__btn-add">
+							Add <i class="bi bi-plus-circle"></i>
+						</button>
+					</form>
+					<button id="reload-budget" class="box__btn-reload">
+						Reload budget <i class="bi bi-arrow-counterclockwise"></i>
+					</button>
+				</div>
+				<div>
+					<p class="box__subtitle"><i class="bi bi-journal-text"></i> List</p>
+					<!-- <article class="card-expense"><p class="card-expense__name">Lavar el carro del vecino</p><span id="cost-expense" class="card-expense__cost">$ 1020000</span><i id="delete-exponse" class="bi bi-x-square-fill card-expense__btn-delete"></i></article> -->
+					<article class="box__status budget"><i class="bi bi-coin"></i> Budget: <span id="budget">$ </span></article>
+					<article class="box__status remaining"><i class="bi bi-shield-exclamation"></i> Remaining: <span id="remaining">$ </span></article>
+				</div>
+			</section>
+		</div>
+	</main>
+	<script src="js/app.js"></script>
+</body>
+
+</html>
