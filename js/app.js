@@ -1,4 +1,3 @@
-const reloadBtn = document.querySelector("#reload-budget");
 const form = document.querySelector("#add-form");
 const container = document.querySelector("#expenses-container");
 
@@ -7,7 +6,6 @@ eventListeners();
 function eventListeners() {
 	messageBudget();
 	form.addEventListener("submit", addExpense);
-	reloadBtn.addEventListener("click", reloadBudget);
 }
 
 class Budget {
@@ -166,9 +164,4 @@ function removeSpending(id) {
 	budget.calculateRemaining();
 	ui.refreshRemaining(budget.remaining);
 	ui.verifyBudget(budget);
-}
-
-function reloadBudget() {
-	localStorage.setItem("expenses", "[]");
-	window.location.reload();
 }
