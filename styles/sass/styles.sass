@@ -20,6 +20,12 @@ $strong-shadow: 0 9px 32px -1px rgba(0, 0, 0, 0.5)
 $input-shadow: 0px 0px 0px 3px #1ccc5a41
 $transition: all 0.3s ease
 
+@mixin font ($weight: normal, $size: 1.6rem, $line: normal, $color: white)
+	font-weight: $weight
+	font-size: $size
+	line-height: $line
+	color: $color
+
 @mixin input-text()
 	margin: 10px 0
 	padding: 10px
@@ -99,7 +105,7 @@ body
 		padding: 20px 0
 		display: grid
 		grid-template-columns: 40% 60%
-		div
+		>div
 			padding: 0 20px
 	&__subtitle
 		padding-block-end: 10px
@@ -132,20 +138,33 @@ body
 			span,i
 				color: $blue
 		&.remaining
-			color: $red
-			border: 2px solid $red
-			background-color: #f0a9b0
+			color: $dark-green
+			border: 2px solid $dark-green
+			background-color: $soft-green
 			span,i
+				color: $dark-green
+			&.orange
+				color: #e65c00
+				border: 2px solid #e65c00
+				background-color: #ffcca9
+				span,i
+					color: #e65c00
+			&.red
 				color: $red
+				border: 2px solid $red
+				background-color: #f0a9b0
+				span,i
+					color: $red
 		span
 			font-weight: 600
 
 .card-expense
-	inline-size: 100%
 	display: grid
 	grid-template-columns: 76% 17% 7%
 	align-items: center
+	margin-block-end: 5px
 	padding: 10px
+	inline-size: 100%
 	font-size: 1.5rem
 	font-weight: 500
 	border-radius: 5px
@@ -177,6 +196,39 @@ body
 			color: $red
 		&:active
 			color: $dark-red
+
+.message
+	position: relative
+	margin-block-start: 20px
+	padding: 20px
+	inline-size: 95%
+	max-inline-size: 300px
+	border-radius: 5px
+	box-shadow: $strong-shadow
+	background-color: $gray
+	&__arrow
+		position: absolute
+		inset-block-start: -32px
+		inset-inline-start: calc( 50% - 20.01px )
+		font-size: 4rem
+		color: $gray
+	&__title
+		@include font(500,1.8rem)
+	&__input
+		@include input-text()
+	&__btn
+		@include btn()
+	&-container
+		position: fixed
+		inset-block-start: 0
+		inset-inline-start: 0
+		display: flex
+		justify-content: center
+		align-items: start
+		inline-size: 100%
+		block-size: 100vh
+		background-color: #00000077
+		transition: all 0.2s ease
 
 @media (max-width: 1015px)
 	.card-expense
